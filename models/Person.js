@@ -23,3 +23,5 @@ const personSchema = mongoose.Schema({
         default: 'N/A' 
     }
 });
+
+module.exports = mongoose.model('Person', personSchema);
