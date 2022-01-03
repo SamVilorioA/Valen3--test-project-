@@ -1,6 +1,14 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
+require('dotenv/config');
+//Importing routes
 const leagueRouter = require('./routes/league');
+
+
+//connect to DB
+mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true, useUnifiedTopology: true}, 
+    () => console.log('Connected to DB'));
 
 //Middleware for responses
 app.use(express.json());
