@@ -9,11 +9,11 @@ const League = require('../models/League');
     router.post('/create', async (req, res) =>{
         const league = new League({
             name: req.body.name,
-            founder: [req.body.founder],
-            manager: [req.body.manager],
+            founder: req.body.founder,
+            manager: req.body.manager,
             foundingDate: req.body.foundingDate,
             phone: req.body.phone,
-            colors: [req.body.colors],
+            colors: req.body.colors,
             location: req.body.location,
             email: req.body.email
         });
