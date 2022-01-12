@@ -32,6 +32,12 @@ const leagueSchema = mongoose.Schema({
     email: {
         type: String,
         required: true
+    },
+    members: {
+        type: [String]
+    },
+    guests:{
+        type: [String]
     }
 });
 module.exports = mongoose.model('League', leagueSchema);
