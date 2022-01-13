@@ -33,9 +33,20 @@ const {registerValidation} = require('../validations/league');
     //Update league info
     router.patch('/:leagueId', async (req, res) =>{
         try {
-            const updateLeague = await League.updateOne({_id: req.params.leagueId},)
+            const updateLeague = await League.replaceOne({ _id: req.params.leagueId}, 
+                { 
+                    name: req.body.name,
+                    founder: req.body.founder,
+                    manager: req.body.manager,
+                    foundingDate: req.body.foundingDate,
+                    phone: req.body.phone,
+                    colors: req.body.colors,
+                    location: req.body.location,
+                    email: req.body.email 
+                });
+            res.json(updateLeague);
         } catch (error) {
-            
+            res.json({message: error});
         }
     });
     //Delete league
