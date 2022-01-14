@@ -3,7 +3,13 @@ const League = require('../models/League');
 const {registerValidation} = require('../validations/league');
 
 //ROUTES
-    router.get('/', (req, res) => {
+    router.get('/:leagueOwner', async (req, res) => {
+        try {
+            const league = await League.find({ leagueOwner: req.params.leagueOwner });
+            res.json(league);            
+        } catch (error) {
+            res.json({message: error});
+        }
         res.send('This is your League!');
     });
     //Register league
