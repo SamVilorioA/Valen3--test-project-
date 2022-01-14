@@ -38,6 +38,10 @@ const leagueSchema = mongoose.Schema({
     },
     guests:{
         type: [String]
+    },
+    leagueOwner: {
+        type: String,
+        required: true,
     }
 });
 module.exports = mongoose.model('League', leagueSchema);
