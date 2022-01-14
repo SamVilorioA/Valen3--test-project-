@@ -10,7 +10,6 @@ const {registerValidation} = require('../validations/league');
         } catch (error) {
             res.json({message: error});
         }
-        res.send('This is your League!');
     });
     //Register league
     router.post('/register', async (req, res) =>{
@@ -48,7 +47,8 @@ const {registerValidation} = require('../validations/league');
                     phone: req.body.phone,
                     colors: req.body.colors,
                     location: req.body.location,
-                    email: req.body.email 
+                    email: req.body.email,
+                    leagueOwner: req.body.leagueOwner 
                 });
             res.json(updateLeague);
         } catch (error) {
