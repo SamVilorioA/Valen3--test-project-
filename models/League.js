@@ -43,9 +43,9 @@ const leagueSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    active: {
+    deleted: {
         type: Boolean,
-        default: true
+        default: false
     }
 });
 module.exports = mongoose.model('League', leagueSchema);
