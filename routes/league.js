@@ -37,6 +37,9 @@ const {registerValidation} = require('../validations/league');
     });
     //Update league info
     router.patch('/:leagueId', async (req, res) =>{
+        //Validate data
+        const {error} = registerValidation(req.body);
+        if(error) return res.status(400).send(error.details[0].message);
         try {
             const updateLeague = await League.replaceOne({ _id: req.params.leagueId}, 
                 { 
@@ -56,7 +59,7 @@ const {registerValidation} = require('../validations/league');
         }
     });
     //Delete league
-    router.put('/delete', (req, res) =>{
+    router.patch('/delete', (req, res) =>{
         res.send('This is the delete route');
     });
 
